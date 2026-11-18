@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#101a27" />
+  <title>Alibi Alley — A Tiny Night Mystery</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="game-shell">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="Alibi Alley home"><span class="brand-mark">✦</span> AFTER HOURS <span class="brand-divider">/</span> <b>ALIBI ALLEY</b></a>
+      <div class="case-label"><span class="live-dot"></span> CASE 07 <span class="case-sep">·</span> THE DOUBLE DATE</div>
+      <button class="sound-button" id="soundButton" aria-label="Toggle sound" title="Toggle sound">♫ <span>ON</span></button>
+    </header>
+
+    <section class="game-layout" aria-label="Game">
+      <div class="scene-wrap">
+        <canvas id="scene" aria-label="A cartoon neighborhood at night"></canvas>
+        <div class="scene-vignette"></div>
+        <div class="scene-topline"><span>MAPLE STREET</span><span id="nightLabel">11:42 PM</span></div>
+        <div class="scene-prompt" id="scenePrompt">Find the telltale clue <span>→</span></div>
+        <div class="crosshair" id="crosshair" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+        <div class="toast" id="toast" aria-live="polite"></div>
+        <div class="scene-bottomline"><span>FICTIONAL NEIGHBORHOOD • ALL CHARACTERS ARE CARTOON SUSPECTS</span><span id="windowLabel">WINDOW 1 / 4</span></div>
+      </div>
+
+      <aside class="side-panel">
+        <div class="panel-kicker"><span class="kicker-star">✳</span> THE NIGHT SHIFT</div>
+        <h1>Somebody's<br><em>story doesn't</em><br>add up.</h1>
+        <p class="intro">A secret second date. A very suspicious cake. Keep your eyes open—and your profile low.</p>
+
+        <div class="mission-card">
+          <div class="mission-head"><span class="mission-icon">⌕</span><span>TONIGHT'S LEAD</span><span class="lead-status" id="leadStatus">OPEN</span></div>
+          <p id="leadText">The baker claims they're home alone. Find the window with <b>two teacups</b>.</p>
+          <div class="lead-progress"><span id="leadProgress"></span></div>
+          <div class="lead-foot"><span>CLUES FOUND</span><b id="clueCount">0 / 3</b></div>
+        </div>
+
+        <div class="stats-row">
+          <div class="stat-box"><span class="stat-label">CASE SCORE</span><strong id="score">0000</strong><small>PTS</small></div>
+          <div class="stat-box"><span class="stat-label">STREAK</span><strong id="streak">×1</strong><small>BEST ×<span id="bestStreak">1</span></small></div>
+        </div>
+
+        <div class="suspicion-wrap">
+          <div class="suspicion-title"><span>NEIGHBOR SUSPICION</span><b id="suspicionText">CALM</b></div>
+          <div class="suspicion-meter" aria-label="Suspicion"><span id="suspicionFill"></span></div>
+          <div class="meter-caption"><span>BLEND IN</span><span>GET SPOTTED</span></div>
+        </div>
+
+        <div class="controls-card">
+          <div class="control-row"><span class="keycap">A</span><span class="keycap">D</span><span>Move between windows</span></div>
+          <div class="control-row"><span class="keycap wide">SPACE</span><span>Hold to investigate</span></div>
+          <div class="control-row mobile-hint"><button class="move-button" id="leftButton" aria-label="Previous window">◀</button><button class="move-button" id="rightButton" aria-label="Next window">▶</button><span>Move between windows</span></div>
+        </div>
+
+        <button class="peek-button" id="peekButton"><span class="peek-icon">◉</span><span>HOLD TO PEEK</span><span class="peek-sub">WATCH YOUR SUSPICION</span></button>
+        <div class="bottom-note"><span>✦</span> Observe only open, lit scenes.<br><span class="note-indent">The best detectives know when to look away.</span></div>
+      </aside>
+    </section>
+
+    <footer class="footer"><span>ALIBI ALLEY <span class="footer-dot">•</span> A SMALL MYSTERY AFTER DARK</span><span>MADE FOR CURIOUS MINDS <span class="footer-dot">✦</span></span></footer>
+  </main>
+
+  <div class="modal-backdrop" id="modalBackdrop">
+    <section class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <div class="modal-spark">✦</div>
+      <div class="modal-kicker" id="modalKicker">A LITTLE MYSTERY</div>
+      <h2 id="modalTitle">Welcome to<br><em>Alibi Alley.</em></h2>
+      <p id="modalCopy">A fictional neighborhood. Four cartoon windows. One very questionable alibi. Find the clues, keep your cool, and don't let the neighbors catch you staring.</p>
+      <div class="modal-tip"><span>YOUR CASE</span><b>Find 3 clues before suspicion fills.</b></div>
+      <button id="startButton" class="start-button">START THE CASE <span>→</span></button>
+      <div class="modal-foot">A COZY STEALTH MYSTERY <span>✦</span> NO REAL PEOPLE, JUST CARTOONS</div>
+    </section>
+  </div>
+  <script src="game.js"></script>
+</body>
+</html>
